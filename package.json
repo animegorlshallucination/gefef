@@ -1,0 +1,15 @@
+{
+  "name": "discord-bot-hosting",
+  "version": "1.0.0",
+  "description": "24/7 Discord Bot Hosting Dashboard",
+  "scripts": {
+    "dev": "vercel dev",
+    "start": "vercel start"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.0"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
