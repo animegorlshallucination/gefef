@@ -10,14 +10,23 @@ export default async function handler(req, res) {
     return;
   }
 
-  // Simulate bot status response
-  const botStatus = {
-    online: true,
-    uptime: Date.now() - (Math.random() * 86400000), // Random uptime
-    servers: Math.floor(Math.random() * 50) + 10,
-    commands: 8,
-    ping: Math.floor(Math.random() * 100) + 20
-  };
+  try {
+    // Simulate bot status response
+    const botStatus = {
+      online: true,
+      uptime: Date.now() - (Math.random() * 86400000), // Random uptime
+      servers: Math.floor(Math.random() * 50) + 10,
+      commands: 8,
+      ping: Math.floor(Math.random() * 100) + 20,
+      timestamp: new Date().toISOString()
+    };
 
-  res.status(200).json(botStatus);
+    res.status(200).json(botStatus);
+  } catch (error) {
+    console.error('Error in bot-status API:', error);
+    res.status(500).json({ 
+      error: 'Internal server error',
+      online: false 
+    });
+  }
 }
